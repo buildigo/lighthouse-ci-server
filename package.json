@@ -5,6 +5,9 @@
     "lighthouse-ci-server": "bin/lighthouse-ci-server.js"
   },
   "scripts": {
+    "start": "lhci server --config=./lighthouserc.json",
+    "deploy": "dotenv -- bash ci/deploy.sh deploy",
+    "diff": "dotenv -- bash ci/deploy.sh diff",
     "build": "tsc",
     "watch": "tsc -w",
     "cdk": "cdk"
@@ -12,12 +15,16 @@
   "devDependencies": {
     "@types/node": "20.14.2",
     "aws-cdk": "2.146.0",
+    "dotenv-cli": "^7.4.2",
     "ts-node": "^10.9.2",
     "typescript": "~5.4.5"
   },
   "dependencies": {
+    "@lhci/cli": "^0.13.0",
+    "@lhci/server": "^0.13.0",
     "aws-cdk-lib": "2.146.0",
     "constructs": "^10.0.0",
-    "source-map-support": "^0.5.21"
+    "source-map-support": "^0.5.21",
+    "sqlite3": "^5.1.7"
   }
 }
